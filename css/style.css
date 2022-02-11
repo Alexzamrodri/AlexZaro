@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Redressed&display=swap");
+/*****************
+Custom properties
+******************/
+:root {
+  /*---------colours-------*/
+  --body-color: #0162b0;
+  --navbar-color: rgba(64, 112, 244, 1);
+  --text-color: #fff;
+
+  /*-----End colours--------*/
+  --bg-color: #0162b0;
+  --first-color: rgb(8, 0, 47);
+  --second-color: #1b1e1e;
+  --third-color: rgb(16, 21, 23);
+  --primary: #3f69ff;
+  --primaryHover: #3256d5;
+  --secondary: #ef0070;
+  --secondaryHover: #fa0575;
+  --font: "Poppins", sans-serif;
+  --white-color: #fff;
+  --white-color80: #ffffffcc;
+  --gray-light-text: #ffffff99;
+}
+/****************
+RESET
+*****************/
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: var(--text-color);
+  background-color: var(--body-color);
+}
+body.dark {
+  --body-color: rgb(43, 42, 51);
+  --navbar-color: #42414d;
+  --text-color: #ccc;
+}
+a {
+  text-decoration: none;
+}
+
+/****Style Utilitarios*****/
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+.home,
+.about,
+.portfolio,
+.contact {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 70px auto;
+}
+/*****Fin Estilos Utilitarios******/
+/***************Header***********/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navbar-color);
+  transition: all 0.3s ease-in-out;
+  height: 70px;
+}
+
+.header.sticky {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 0;
+}
+
+.header.sticky .nav-bar {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.nav-bar {
+  /*position: relative;*/
+  height: 100%;
+  background-color: var(--navbar-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-bar .logo a,
+.menu .menu-toogle .logo a {
+  font-size: 25px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.menu-toogle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*background-color: #42414d;*/
+  background-color: rgba(225, 255, 255, 0.1);
+  padding: 16px 20px;
+  border-bottom: 1px solid #5d5d5d;
+}
+.mobile-menu i {
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toogle i {
+  color: var(--text-color);
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-bar .menu {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-color: var(--first-color);
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  /*display: none;*/
+  transition: all 0.5s ease-in-out;
+}
+.menu.menu-active {
+  left: 0;
+}
+.menu .menu-links {
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-color);
+  padding: 0 30px;
+}
+.menu .menu-links a {
+  /*padding: 5px 20px;*/
+  /*background-color: turquoise;*/
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-color);
+  display: block;
+  padding: 15px 0;
+  border-bottom: 1px solid #5d5d5d;
+}
+.dark-light {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dark-light i {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.dark-light i.sun {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dark-light.active i.sun {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dark-light.active i.moon {
+  opacity: 0;
+  pointer-events: none;
+}
+/*******-----MENU TOOGLE------*****/
+
+/*******-----FIN MENU TOOGLE------*****/
+.home {
+  margin-top: 70px;
+}
+/**********Fin Header***********/
+/*******MEDIA QUERYS*******/
+@media only screen and (min-width: 768px) {
+  .mobile-menu,
+  .menu-toogle {
+    display: none;
+  }
+  .nav-bar .menu {
+    position: static;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+  }
+
+  .menu .menu-links {
+    flex-direction: row;
+    padding: 0;
+  }
+  .menu .menu-links a {
+    font-size: 17px;
+    display: block;
+    padding: 10px 20px;
+    border-bottom: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 1024px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+}
+
+/**********FIN MEDIA QUERYS*******/
