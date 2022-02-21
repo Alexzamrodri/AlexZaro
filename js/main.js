@@ -43,4 +43,49 @@ btnClose.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
   if (!e.target.matches(".menu a")) return false;
   menuBar.classList.remove("menu-active");
+  //removeClass();
+  //console.log(e.target.classList.add("active-link"));
+});
+//console.log(location.href);
+//console.log(document.links.length);
+/*function removeClass() {
+  const links = document.querySelectorAll(".menu-links a");
+  //console.log(links);
+  for (let index = 0; index < links.length; index++) {
+    if (links[index].matches(".menu .menu-links .active-link ")) {
+      links[index].classList.remove("active-link");
+    }
+  }
+}*/
+
+//Identificando
+const section = document.querySelectorAll(".observer");
+const links = document.querySelectorAll(".menu-links a");
+
+const observer = new IntersectionObserver(
+  (entradas, observador) => {
+    console.log(entradas);
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        const id = "#" + entrada.target.id;
+        history.pushState({}, "", id);
+
+        links.forEach((link) => {
+          link.classList.remove("active-link");
+          const href = link.attributes.href.nodeValue;
+          if (href === id) {
+            link.classList.add("active-link");
+          }
+        });
+      }
+    });
+  },
+  {
+    //indica que cuando el contenido de la pagina ya este al 50% y al 75% se ponga visible
+    threshold: [0.5, 0.75],
+  }
+);
+//console.log(section);
+section.forEach((sec) => {
+  observer.observe(sec);
 });
