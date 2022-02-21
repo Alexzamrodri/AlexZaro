@@ -29,7 +29,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -106,6 +106,12 @@ a {
 }
 .text-center {
   text-align: center;
+}
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
 }
 .about,
 .portfolio,
@@ -258,7 +264,7 @@ a {
 .home .hero-image {
   width: 100%;
   /*min-height: 395px;*/
-  min-height: 80vh;
+  min-height: 100vh;
   position: relative;
 }
 .hero-image .bg-fliasoft {
@@ -309,7 +315,9 @@ a {
     width: auto;
     height: auto;
   }
-
+  .home .hero-image {
+    min-height: 568px;
+  }
   .menu .menu-links {
     flex-direction: row;
     padding: 0;
@@ -328,11 +336,20 @@ a {
     justify-content: space-evenly;
     margin-top: none;
   }
+  .home-text .info-text {
+    text-align: left;
+  }
+  .hero-image .bg-fliasoft {
+    display: block;
+  }
 }
 @media only screen and (min-width: 992px) {
   .home .hero-image {
     /*background-color: red;*/
     height: 100vh;
+  }
+  .info-text h1 {
+    font-size: 2.8rem;
   }
 }
 @media only screen and (min-width: 1024px) {
