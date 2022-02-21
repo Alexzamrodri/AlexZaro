@@ -263,8 +263,8 @@ a {
 }
 .home .hero-image {
   width: 100%;
-  /*min-height: 395px;*/
-  min-height: 100vh;
+  /*min-height: 395px;
+  min-height: 100vh;*/
   position: relative;
 }
 .hero-image .bg-fliasoft {
@@ -305,6 +305,9 @@ a {
   .header {
     margin-bottom: 70px;
   }
+  .home {
+    padding-top: 90px;
+  }
   .mobile-menu,
   .menu-toogle {
     display: none;
@@ -315,6 +318,7 @@ a {
     width: auto;
     height: auto;
   }
+
   .home .hero-image {
     min-height: 568px;
   }
